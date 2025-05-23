@@ -1,89 +1,152 @@
-<html lang="">
-	<head>
-		<title>Zaid Minhas</title>
-	</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaid | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+  <h1 id="name-header">Zaid Minhas</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#competitions">Competitions</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-	<body>
-		<h1> About me</h1>
-		<p>Hi I'm Zaid!!! <br>
-			I'm a <b>Data Scientist</b> and <b>Game Developer</b>, love playing games, making games, doing math (🤓), participating in events, and working on projects</p>
+<script>
+  const names = ["Zaid Minhas", "Zaddy", "Ziad", "Ziddy", "Midhasbeen", "Baldo Brown", "Zed", "Elden Ring Addict", "VP of Shinanigans"];
+const nameHeader = document.getElementById("name-header");
 
-		<h2>My Games</h2>
-		<p>I've made a lot of games, mostly during Game Jams in teams, here are some of my favorite ones</p>
+function fadeChangeText(newText) {
+  // Prevent interrupting ongoing animation
+  if (nameHeader.classList.contains("fade-out") || nameHeader.classList.contains("fade-in")) return;
 
-		<h3>Bloxorz (Recreation)</h3>
-		<p>
-			One of my first big solo projects, I had a blast recreating my childhood game in Unity.
-			<br>
-			I made 9 levels, also added my own moving platform mechanic
-			<br>
-			I learnt a lot, definitely need to re-remake it with better optimization and levels
-		</p>
+  // Add fade-out class to start fade-out animation
+  nameHeader.classList.add("fade-out");
 
-		<img src="https://img.itch.zone/aW1nLzE0NzAzMTc0LnBuZw==/315x250%23c/lNCWYb.png" height="300" alt="">
+  // Wait for fade-out animation to complete
+  nameHeader.addEventListener("animationend", function handler() {
+    if (nameHeader.classList.contains("fade-out")) {
+      // Change text when fully faded out
+      nameHeader.textContent = newText;
 
-		<h3>Uprooted</h3>
-		<p>
-			This was made on my 2nd game jam with my team
-			<br>
-			After our first game jam we learnt that we had to scale down by 10x 💀
-			<br>
-			So we made a simple but cute game where you play as a walking tree that's trying to reach his love, but you have to hide from people by turning into a normal tree
-			<br>
-			Although it was simple it was very polished and people loved it :)
-		</p>
-		<img alt="" height="300" src="https://img.itch.zone/aW1nLzExMjQzMTA0LmpwZw==/315x250%23c/RyhF3i.jpg">
+      // Switch to fade-in animation
+      nameHeader.classList.remove("fade-out");
+      nameHeader.classList.add("fade-in");
+    } else if (nameHeader.classList.contains("fade-in")) {
+      // Cleanup after fade-in ends
+      nameHeader.classList.remove("fade-in");
+      nameHeader.removeEventListener("animationend", handler);
+    }
+  });
+}
 
-		<h3>Academic Weapon</h3>
-		<p>
-			This is probably my 6th game jam, we were a team of just 3 competing against other teams that had <b>9</b> people!
-			<br>
-			Did I mention that we got a mug?
-			<br>
-			Definitely one of the biggest games I've worked on.
-		</p>
-		<img src="https://img.itch.zone/aW1hZ2UvMjk4OTg0Ni8xNzg4Njk4OS5wbmc=/794x1000/9guuKj.png" height="300" alt="">
+nameHeader.addEventListener("mouseenter", () => {
+  // Pick a random name different from current
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * names.length);
+  } while (names[newIndex] === nameHeader.textContent);
 
-		<h2>Big Projects</h2>
-		<p>Here are some other big projects I've worked on</p>
+  fadeChangeText(names[newIndex]);
+});
 
-		<h3>Sudoku Solver</h3>
-		<p>
-			For a long time I've tried to make an efficient Sudoku solver in Python, I tried avoiding using a brute force backtracking algorithm for a long time worrying about the speed and performance.
-			<br>
-			After my C++ final exam, I immediately went home and made a backtracking algorithm in C++ in a few hours and it's <b>fast</b>
-			<br>
-			You just simply enter the board data on a txt file and the program will read it, solve the board and display the results
-			<br>
-			I'm planning on making it automated to read a board directly from Sudoku.com and solving it automatically on the website. Just need to get good at web dev and web scraping
-			<br>
-			Sudoku is also my least favorite game on Earth, I feel like a computer when trying to solve it which does not feel fun.
-		</p>
-		<img src="Images/Sudoku.webp" height="300" alt="">
+nameHeader.addEventListener("mouseleave", () => {
+  fadeChangeText(names[0]);
+});
 
-		<h3>Batch File Renamer</h3>
-		<p>
-			Back when I used to use a macbook, I noticed that it had a very neat feature where you can change the name of multiple files at once with some nice formatting options too
-			<br>
-			I wanted to do the same on Windows, so I made one using python. Definitely proud of this one.
-			<br>
-			Only issue was using tkinter, making GUIs is not fun...
-		</p>
+</script>
 
-		<h3>This Website</h3>
-		<p>
-			Definitely the hardest project I've worked on, with 0 experience on HTML, CSS and JS, the amount of p and br are annoying
-			<br>
-			People always try to warn and scare me about JS, but they don't know my main weakness is HTML 💀
-			<br>
-			I'm currently learning HTML, I just finished the first module about headers, paragraphs and images (IMAGES COMING SOON)
-		</p>
 
-		<img src="Images/Webpage.png" height="300" alt="">
-		<h1>MORE TO COME</h1>
-	<a href="Another.html">My other webpage</a>
-	</body>
+  <section id="hero">
+    <h2>Hi, I'm Zaid</h2>
+    <p>Im a Game Developer and Data Scientist</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Here are some of my projects I've worked on from the start of my degree up to now</p>
+  </section>
+
+<section id="competitions">
+  <h2>Competitions</h2>
+
+  <div class="competition">
+    <h3>Udem Game Jam at Université de Montréal</h3>
+    <img src="https://img.itch.zone/aW1nLzIxMTIyNTA3LnBuZw==/original/B64VuK.png" alt="Academic Masters screenshot">
+    <p><strong>Date:</strong> May 2025</p>
+    <p><strong>Project:</strong> <a href="https://shinykiwi.itch.io/academic-master" target="_blank">Academic Masters by The Fazbears</a></p>
+    <p>This is my first game jam after graduating and we won! We had 24 hours to work on the theme related to "Teachers in Training".</p>
+    <p>We decided to make a Plague Inc. inspired game where the teacher scores points from students, and uses it to upgrade the classroom and his teaching skills. The goal is to get all students in your class to pay attention and learn.</p>
+  </div>
+
+  <div class="competition">
+    <h3>ConUHacks IX at Concordia University</h3>
+    <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/003/249/983/datas/gallery.jpg" alt="Finsurance screenshot">
+    <p><strong>Date:</strong> February 2025</p>
+    <p><strong>Project:</strong> <a href="https://devpost.com/software/finsurance" target="_blank">Finsurance by HashBrowns</a></p>
+    <p>We decided to do the Sun Life Insurance challenge where we built a website with an AI chat bot that helps you manage your finances and get financial advice.</p>
+    <p>Our project, Finsurance won! It was a very challenging competition and I learnt a lot from it. This was my first exposure to PostgreSQL and web development as a whole.</p>
+  </div>
+
+  <div class="competition">
+    <h3>McGame Jam at McGill University</h3>
+    <img src="https://img.itch.zone/aW1hZ2UvMzI0MDExNC8xOTM1MTIyMi5qcGc=/794x1000/%2F0Tdjg.jpg" alt="Reposession screenshot">
+    <p><strong>Date:</strong> January 2025</p>
+    <p><strong>Project:</strong> <a href="https://zaidminhas.itch.io/reposession" target="_blank">Reposession by The Fazbears</a></p>
+    <p>For this jam we made a simple Lost & Found game where the player has to return items based on an NPC’s request.</p>
+    <p>Compared to jams before this, Reposession was our most complete and polished game. The judges tried their best to break our game but couldn’t :)</p>
+  </div>
+
+  <div class="competition">
+    <h3>Gamerella at Concordia University</h3>
+    <img src="https://img.itch.zone/aW1nLzE4NzE1MDE1LmpwZw==/original/G98Baz.jpg" alt="Starlit Catch screenshot">
+    <p><strong>Date:</strong> November 2024</p>
+    <p><strong>Project:</strong> <a href="https://tuanabicakci.itch.io/starlit-catch" target="_blank">Starlit Catch by The Fazbears</a></p>
+    <p>By far one of the best experiences I have had at any event—there was a lot of food, so many nice people, great mentors.</p>
+    <p>This was also by far the most beautiful game I had the luxury of working on. After spending way too long on vectors and boolean algebra, we made a fishing game inspired by the gameplay from RDR2 and named all the fishes after our teammates.</p>
+  </div>
+
+  <div class="competition">
+    <h3>@Hacks at Concordia University</h3>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGdFUiMPt_pJ64D0RM4rXIH7LXArMw7M0MWw&s" alt="@Hacks screenshot">
+    <p><strong>Date:</strong> March 2024</p>
+    <p>This was a very unique type of competition. Some challenges were fun but most were infuriating. However! Our team managed to be in the top 19 out of 120 teams!</p>
+    <p>I had fun exploring new tools and websites to find the flag. I had a lot of fun reverse engineering some of the programs they gave us.</p>
+  </div>
+
+  <div class="competition">
+    <h3>ConUHacks VIII</h3>
+    <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/729/958/datas/gallery.jpg" alt="Tomster screenshot">
+    <p><strong>Date:</strong> January 2024</p>
+    <p><strong>Project:</strong> <a href="https://devpost.com/software/tomster-project" target="_blank">Tomster</a></p>
+    <p>My first Hackathon! We won the Behaviour Interactive sponsored challenge where we made a Queue Lobby for Dead by Daylight.</p>
+    <p>Two of us worked on the math and the other two worked on the game simulation. We had the luxury of going to their office for a tour and won free Dead by Daylight Steam keys that I have yet to install.</p>
+    <p>If I could pick any of these competitions to be my favorite, it would be this one. I had such a great time with my team, had fun at the Behaviour office tour, and it was the start of my competition spree.</p>
+  </div>
+
+  <div class="competition">
+    <img src="https://cdn.discordapp.com/attachments/1088118000508469388/1375500172024348844/image.png?ex=6831e9dc&is=6830985c&hm=e6b43dd5a41029ab219352b974a6701018b70975c9cf348c3eee7b2ee866bdac&" alt="Ubisoft Game Labs screenshot">
+    <h3>Ubisoft Game Labs 2024</h3>
+    <p>... I will find something nice to say about this later.</p>
+  </div>
+</section>
+
+
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:minhas.zaid@gmail.com">minhas.zaid@gmail.com</a></p>
+    <p>LinkedIn: <a href="#">https://www.linkedin.com/in/zaid-minhas/</a></p>
+    <p>Itch Page: <a href="#">https://zaidminhas.itch.io/</a></p>
+    <p>Github: <a href="#">https://github.com/ZaidMinhas</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Brave Studios. All rights reserved.</p>
+  </footer>
+</body>
 </html>
-
-
-

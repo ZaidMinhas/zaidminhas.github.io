@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at center, #1976d2, #0a1f44);
+  color: #e3f2fd;
+  line-height: 1.6;
+}
+
+
+header {
+  background-color: rgba(10, 31, 68, 0.95);
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  border-bottom: 2px solid #90caf9;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.competition {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.competition h3 {
+  margin-top: 0;
+  color: #90caf9;
+}
+
+.competition img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+a {
+  color: #90caf9;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #bbdefb;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  section {
+    padding: 20px 10px;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* adds spacing between links */
+  padding: 10px 0;
+}
+
+nav a {
+  color: #90caf9;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #bbdefb;
+  text-decoration: underline;
+}
+
+#name-header {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid #90caf9;       /* matches your link color */
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-weight: 700;                 /* a bit bolder to stand out */
+}
+
+#name-header:hover {
+  background-color: #90caf9;        /* link color background on hover */
+  color: #0a1f44;                  /* dark blue from your header bg */
+  border-color: #bbdefb;           /* lighter blue border */
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-out {
+  animation: fadeOut 0.1s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.1s forwards;
+}
